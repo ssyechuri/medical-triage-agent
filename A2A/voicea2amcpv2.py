@@ -213,7 +213,7 @@ class AudioSystem:
             except Exception as e:
                 print(f"TTS: Error: {e}")
 
-# FIXED A2A Triage Service with proper state mapping
+# A2A Triage Service with proper state mapping
 class A2ATriageService:
     def __init__(self):
         self.app = Flask(__name__)
@@ -234,8 +234,8 @@ class A2ATriageService:
         @self.app.route('/.well-known/agent.json', methods=['GET'])
         def agent_card():
             return jsonify({
-                "name": "Medical Triage Agent",
-                "description": "AI agent that performs medical symptom triage and assessment using professional medical protocols",
+                "name": "Medical Triage Agent A2A service",
+                "description": "A2A service for AI agent that performs medical symptom triage and assessment using professional medical protocols",
                 "url": "http://localhost:8887",
                 "provider": {
                     "organization": "",
