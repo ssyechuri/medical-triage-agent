@@ -231,7 +231,7 @@ class A2ATriageService:
     
     def setup_routes(self):
         # FIXED Agent Card
-        @self.app.route('/.well-known/agent.json', methods=['GET'])
+        @self.app.route('/.well-known/agent-card.json', methods=['GET'])
         def agent_card():
             return jsonify({
                 "name": "Medical Triage Agent A2A service",
@@ -673,7 +673,7 @@ class A2AClient:
     async def discover_agent(self):
         try:
             def _request():
-                return requests.get(f"{self.base_url}/.well-known/agent.json", timeout=30)
+                return requests.get(f"{self.base_url}/.well-known/agent-card.json", timeout=30)
             
             loop = asyncio.get_event_loop()
             response = await loop.run_in_executor(None, _request)
